@@ -1,13 +1,12 @@
 <template>
   <div id="app">
    <h2 >Web Site Facturas</h2>
-   <div class="container">
-     <div class="row">
+   <div class="container ">
+     <div id="fac" class="row">
        <factura :compra="compra" :productoUnitario="productoUnitario" :descuento="descuento" :cantidad="cantidad" :subtotal="subtotal"></factura>
-       <recibo :productoUnitario="productoUnitario" :descuento="descuento" :cantidad="cantidad" :subtotal="subtotal" :total="total"></recibo>
      </div>
      <div class="row">
-       <table class="table mt-8">
+       <table  class="table">
             <thead class="thead-dark">
                 <tr>
                 <th scope="col">Ref</th>
@@ -16,13 +15,11 @@
                 <th scope="col">Cantidad</th>
                 <th scope="col">Descuento</th>
                 <th scope="col">Subtotal</th>
-                <th scope="col">Cliente</th>
-                <th scope="col">Cedula</th>
+                <th scope="col"></th>
                 </tr>
             </thead>
-            <tbody>
-               <pedidos v-for="comp in compra" :key="comp.ref" :compra="comp"></pedidos> 
-            </tbody>
+            <pedidos  :compra="compra" ></pedidos> 
+            
         </table>
        
      </div>
@@ -33,28 +30,28 @@
 <script>
 
 import factura from "./components/Factura.vue";
-import Recibo from "./components/Recibo.vue";
+
 import Pedidos from "./components/Pedidos.vue"
 export default {
   name: 'App',
   data() {
     return {
       compra:[],
-      descuento:10,
-      cantidad:16,
-      subtotal:9,
-      total:17,
+      descuento:null,
+      cantidad:null,
+      subtotal:null,
+      total:null,
 
       productoUnitario:{
-        ref:'00007',
-        nombre:'mac',
-        precio:'100000'
+        ref:null,
+        nombre:null,
+        precio:null
       }
     }
   },
+ 
   components: {
     factura,
-    Recibo,
     Pedidos
   },
 
@@ -75,5 +72,7 @@ export default {
     margin: 5px;
     margin-top: 20px;
 }
-  
+#fac{
+  margin-bottom: 20px;
+}
 </style>

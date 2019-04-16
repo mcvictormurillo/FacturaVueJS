@@ -1,6 +1,6 @@
 <template>
 <div class="col-md-5 ">
-<div class="card" style="width: 18rem;">
+<div class="card" >
   <div class="card-body">
     <h5 class="card-title">RECIBO DE PAGO</h5>
     <div class="row">
@@ -51,9 +51,9 @@
             <p class="text-muted text-right">{{subtotal}}</p>
         </div>
     </div>
-     <div class="row">
-        <div class="col-md-6">
-            <h6 class="card-text text-left">Total:</h6>
+     <div class="row mt-8">
+        <div class="col-md-6 mt-8">
+            <h4 class="card-text text-left">Total:</h4>
         </div>
         <div class="col-md-6">
             <p class="text-muted text-right">{{total}}</p>
