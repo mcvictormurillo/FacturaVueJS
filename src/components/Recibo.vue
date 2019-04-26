@@ -1,8 +1,15 @@
 <template>
-<div class="col-md-5 ">
+<div class="col-md-7 ">
 <div class="card" >
   <div class="card-body">
-    <h5 class="card-title">RECIBO DE PAGO</h5>
+    <div class="row mb-8">
+        <div class="col-3 text-left">
+            <img class="mb-8" src="../assets/analytics.png">
+        </div>
+        <div class="col-9">
+            <h3 class="card-title text-left">FACTURA</h3>
+        </div>
+    </div>
     <div class="row">
         <div class="col-md-6">
             <h6 class="card-text text-left">Ref:</h6>

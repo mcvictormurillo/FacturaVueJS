@@ -1,31 +1,43 @@
 <template>
 
 <div class="row">
-  <form  @submit.prevent="AddProducto"  class="needs-validation col-7" novalidate>
-  <div class="form-row">
-    <div class="col-md-4 mb-3">
+  <form  @submit.prevent="AddProducto"  class="needs-validation col-5" novalidate>
+  <div class=" form-row">
+    <div class="col-md-12 mb-3 text-left">
+      <label for="validationCustom01">Cliente</label>
+      <input v-model="cliente.nombre" type="text" class="form-control" placeholder="Nombre del cliente">
+    </div>
+    <div class="col-md-12 mb-3 text-left">
+      <label for="validationCustom01">Identificacion</label>
+      <input v-model="cliente.id" type="text" class="form-control" placeholder="CC.">
+    </div>
+    <div class="col-md-12 mb-3 text-left">
+      <label for="validationCustom01">Celular</label>
+      <input v-model="cliente.celular" type="text" class="form-control" placeholder="000-000-0000">
+    </div>
+    <div class="col-md-4 mb-3 text-left">
       <label for="validationCustom01">Ref</label>
       <input v-model="producto.ref" type="text" class="form-control" placeholder="0-000001">
     </div>
-    <div class="col-md-8 mb-3">
+    <div class="col-md-8 mb-3 text-left">
       <label for="validationCustom01">Nombre Producto</label>
       <input v-model="producto.nombre" type="text" class="form-control" placeholder="Nombre">
     </div>
 
-    <div class="col-md-4 mb-3">
+    <div class="col-md-4 mb-3 text-left">
       <label for="validationCustom02">Precio</label>
       <input v-model="producto.precio" type="number" class="form-control" placeholder="$0" value="Otto" required>
     </div>
-    <div class="col-md-8 mb-3">
+    <div class="col-md-8 mb-3 text-left">
       <label for="validationCustom01">Descuento %</label>
       <input v-model="des" type="text" class="form-control" placeholder="0">
     </div>
 
-     <div class="col-md-4 mb-3">
+     <div class="col-md-4 mb-3 text-left">
       <label for="validationCustom02">Cantdiad</label>
       <input  v-model="cant" type="number" class="form-control" placeholder="0" value="Otto" required>
     </div>
-    <div class="col-md-8 mb-3">
+    <div class="col-md-8 mb-3 text-left">
       <label for="validationCustom01">SubTotal</label>
       <input v-model="calcularSubtotal" type="text" class="form-control" placeholder="$0" disabled>
     </div>
@@ -36,7 +48,7 @@
 </form>
 
 
-<recibo :productoUnitario="producto" :descuento="des" :cantidad="cant" :subtotal="calcularSubtotal" :total="calcularTotal"></recibo>
+<recibo :productoUnitario="producto" :descuento="des" :cantidad="cant" :subtotal="calcularSubtotal" :total="total"></recibo>
 
 </div>
 
@@ -50,7 +62,7 @@ import Recibo from "./Recibo.vue";
 export default {
 
     name:'factura',
-    props:['productoUnitario','descuento','cantidad','subtotal','compra'],
+    props:['productoUnitario','descuento','cantidad','subtotal','compra','total','cliente'],
     data() {
       return {
         des: this.descuento,
@@ -79,7 +91,7 @@ export default {
         }
         
       },
-      calcularTotal: function(){
+      /*calcularTotal: function(){
         
           let sumatoria= 0
           this.compra.forEach(element => {
@@ -88,7 +100,7 @@ export default {
           console.log(`el total es ${sumatoria}`)
           console.log(this.compra)
         return sumatoria
-      }
+      */
     },
     methods: {
       
