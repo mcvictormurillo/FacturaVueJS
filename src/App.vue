@@ -3,7 +3,12 @@
    <h2 >Web Site Facturas</h2>
    <div class="container ">
      <div id="fac" class="row">
-       <factura :compra="compra" :productoUnitario="productoUnitario" :descuento="descuento" :cantidad="cantidad" :subtotal="subtotal" :total="calcularTotal" :cliente="cliente"></factura>
+       <factura :compra="compra" :productoUnitario="productoUnitario" 
+       :descuento="descuento" :cantidad="cantidad" 
+       :subtotal="subtotal" :total="calcularTotal" 
+       :cliente="cliente"></factura>
+       
+       
      </div>
      <div class="row">
        
@@ -61,8 +66,8 @@
 <script>
 
 import factura from "./components/Factura.vue";
+import Pedidos from "./components/Pedidos.vue";
 
-import Pedidos from "./components/Pedidos.vue"
 export default {
   name: 'App',
   data() {

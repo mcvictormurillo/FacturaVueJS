@@ -47,9 +47,11 @@
   
 </form>
 
+<!--
+  <recibo :productoUnitario="producto" :descuento="des" :cantidad="cant" :subtotal="calcularSubtotal" :total="total"></recibo>
 
-<recibo :productoUnitario="producto" :descuento="des" :cantidad="cant" :subtotal="calcularSubtotal" :total="total"></recibo>
-
+  -->
+<Producto :index="producto.ref"/>
 </div>
 
 
@@ -57,6 +59,7 @@
 
 <script>
 import Recibo from "./Recibo.vue";
+import Producto from './Producto.vue'
 
 
 export default {
@@ -91,22 +94,14 @@ export default {
         }
         
       },
-      /*calcularTotal: function(){
-        
-          let sumatoria= 0
-          this.compra.forEach(element => {
-            sumatoria += parseFloat(element.subtotal)
-          });
-          console.log(`el total es ${sumatoria}`)
-          console.log(this.compra)
-        return sumatoria
-      */
+
     },
     methods: {
       
       AddProducto: function(){
         self = this
-       
+        
+        
         var productToAdd = {
           ref: self.producto.ref,
           nombre: self.producto.nombre,
@@ -137,6 +132,9 @@ export default {
       }
 
     },
+    components:{
+      Producto
+    }
    
 }
 </script>
