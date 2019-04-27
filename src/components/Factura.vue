@@ -15,13 +15,25 @@
       <label for="validationCustom01">Celular</label>
       <input v-model="cliente.celular" type="text" class="form-control" placeholder="000-000-0000">
     </div>
-    <div class="col-md-4 mb-3 text-left">
+    <!--<div class="col-md-4 mb-3 text-left">
       <label for="validationCustom01">Ref</label>
-      <input v-model="producto.ref" type="text" class="form-control" placeholder="0-000001">
-    </div>
-    <div class="col-md-8 mb-3 text-left">
-      <label for="validationCustom01">Nombre Producto</label>
-      <input v-model="producto.nombre" type="text" class="form-control" placeholder="Nombre">
+      <input   v-model="producto.ref" type="text" class="form-control" placeholder="0-000001">
+    </div> -->
+    <div class="col-md-12 mb-3 text-left">
+      <label for="sel">Nombre Producto</label>
+      <select v-bind:value="producto.nombre" v-on:change="producto.nombre = $event.target.value" class="form-control" id="sel">
+        <option id="0" value="Iphone 5">Iphone 5</option>
+        <option id="1" value="Iphone 6">Iphone 6</option>
+        <option id="2" value="Iphone 7">Iphone 7</option>
+        <option id="3" value="Iphone 8">Iphone 8</option>
+        <option id="4" value="Macbook Pro">Macbook Pro</option>
+        <option id="5" value="Macbook Air">Macbook Air</option>
+        <option id="6" value="Smart TV">Smart TV</option>
+        <option id="7" value="Audifonos">Audifonos</option>
+        <option id="8" value="Teclado">Teclado</option>
+        <option id="9" value="Mouse">Mouse</option>
+      </select>
+      
     </div>
 
     <div class="col-md-4 mb-3 text-left">
@@ -51,7 +63,7 @@
   <recibo :productoUnitario="producto" :descuento="des" :cantidad="cant" :subtotal="calcularSubtotal" :total="total"></recibo>
 
   -->
-<Producto :index="producto.ref"/>
+<Producto :nombreProducto="producto.nombre" :precio="producto.precio"/>
 </div>
 
 
@@ -60,7 +72,7 @@
 <script>
 import Recibo from "./Recibo.vue";
 import Producto from './Producto.vue'
-
+import Productos from '../Data/Productos.js'
 
 export default {
 
@@ -71,14 +83,16 @@ export default {
         des: this.descuento,
         cant: this.cantidad,
         subto: this.subtotal,
-        producto: this.productoUnitario
+        producto: this.productoUnitario,
+        
       }
     },
     methods:{
       calcular: function(){
         this.subto = parseFloat(this.producto.precio) * parseFloat(this.cantidad)
         console.log(subto)
-      },
+      }
+      
      
     },
     components:{
@@ -93,7 +107,7 @@ export default {
           return 0
         }
         
-      },
+      }
 
     },
     methods: {

@@ -7,9 +7,10 @@
             </div>
             <div class="col-md-7">
                 <div class="card-body">
-                <h5 class="card-title">id: {{this.index}}</h5>
-                <p class="card-text">Precio:</p>
-                <p class="card-text">Nombre:</p>
+                <p class="card-text text-left">Nombre: {{nombreProducto}}</p>
+                <p class="card-text text-left">Descripcion:{{descripcionProducto}} </p>
+                <p class="card-title text-left">id: {{precioId}}</p>
+   
                 
             </div>
             </div>
@@ -18,28 +19,40 @@
 </template>
 
 <script>
-
 import Productos from '../Data/Productos';
+
 export default {
     name:'Producto',
-    props:['index'],
+    props:['nombreProducto','precio'],
     data() {
       return {
-        indexLista :  this.index,
         
+        nomProducto: this.nombreProducto,
+        descripcionProducto: undefined,
+        precioId: undefined
 
+        
       }
     },
+    
    
     computed:{
         obtenerUrl: function(){
-            if(!this.index){
-                return "https://livearn.io/themes/wowonder/img/publisher/gallery.svg"
-            }else{
-                return  Productos.productos[this.index].avatar
-            }   
+            if(!this.nombreProducto){
+                this.descripcionProducto = ''
+                this.precioId = ''
+                return "http://icons.iconarchive.com/icons/designbolts/free-multimedia/1024/Dslr-Camera-icon.png"
+            }
+            let imagen=undefined
+            let n = Productos.productos.filter((p)=>{
+                if(this.nombreProducto==p.nombre){
+                    imagen = p.avatar
+                    this.descripcionProducto = p.descripcion
+                    return p.precio
+                }
+            })
+            return imagen
         }
     }
 }
-
 </script>

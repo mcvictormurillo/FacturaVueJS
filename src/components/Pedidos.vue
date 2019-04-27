@@ -1,7 +1,7 @@
 <template>
 <tbody>
   <tr v-for="(comp,index) in arrCompras" :key="comp.id">
-        <td>{{comp.producto.ref}}</td>
+        
         <td>{{comp.producto.nombre}}</td>
         <td>{{comp.producto.precio}}</td>
         <td>{{comp.cantidad}}</td>

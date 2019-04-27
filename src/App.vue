@@ -42,7 +42,7 @@
            <table  class="table table-striped table-bordered table-hover table-sm">
             <thead class="thead-light">
                 <tr>
-                <th scope="col">Ref</th>
+                
                 <th scope="col">Producto</th>
                 <th scope="col">Precio</th>
                 <th scope="col">Cantidad</th>
