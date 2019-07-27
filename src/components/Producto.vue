@@ -47,6 +47,7 @@ export default {
             let n = Productos.productos.filter((p)=>{
                 if(this.nombreProducto==p.nombre){
                     imagen = p.avatar
+                    this.precioId = p.id
                     this.descripcionProducto = p.descripcion
                     return p.precio
                 }
